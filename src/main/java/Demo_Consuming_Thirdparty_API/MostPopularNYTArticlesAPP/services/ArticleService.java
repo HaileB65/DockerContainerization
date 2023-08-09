@@ -24,6 +24,7 @@ public class ArticleService {
 
     public List<Article> getMostPopular() {
         NytResponse response = restTemplate.getForObject(mostPopularUrl + "api-key=" + apikey, NytResponse.class);
+
         List<Article> results = new ArrayList<>();
         if (response != null && response.getStatus().equals("OK")) {
             return response.getResults();
